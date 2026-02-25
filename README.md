@@ -1,59 +1,85 @@
-# AngularApp1
+# AngularApp1 – User Profile Dashboard
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+## 📌 Project Overview
 
-## Development server
+This project is a simple User Profile Dashboard built using Angular (Standalone Components) and TypeScript.  
 
-To start a local development server, run:
+It demonstrates component-based architecture, data binding, component interaction, and strong typing using TypeScript interfaces.
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Features
 
-## Code scaffolding
+- Display user profile information (name, age, profile picture)
+- Online/Offline status toggle
+- Editable user bio section
+- Dark mode toggle
+- Additional fields (email and role)
+- Component-based styling
+- Smooth UI animation effects
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+---
 
-```bash
-ng generate component component-name
-```
+## 🧱 Application Structure
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The application consists of three main components:
 
-```bash
-ng generate --help
-```
+### 1️⃣ UserCardComponent
+Displays:
+- Name
+- Age
+- Profile picture
+- Email
+- Role
 
-## Building
+Uses `@Input()` to receive user data from parent component.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+### 2️⃣ UserStatusComponent
+Displays:
+- Online/Offline status
+- Toggle button
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Uses:
+- `@Input()` to receive status
+- `@Output()` with `EventEmitter` to notify parent when status changes
 
-## Running unit tests
+---
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+### 3️⃣ UserBioComponent
+Displays:
+- User bio
+- Edit mode with textarea
 
-```bash
-ng test
-```
+Uses:
+- Two-way binding (`ngModel`)
+- `@Output()` to send updated bio to parent component
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 🔁 Component Interaction
 
-```bash
-ng e2e
-```
+The parent component (`App`) manages the user state.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Data flows down using `@Input()`
+- Events flow up using `@Output()` and `EventEmitter`
 
-## Additional Resources
+This demonstrates Angular component communication.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 🧠 TypeScript Usage
+
+A strongly typed interface (`User`) is used to model user data:
+
+```ts
+export interface User {
+  name: string;
+  age: number;
+  profilePicture: string;
+  bio: string;
+  isOnline: boolean;
+  email: string;
+  role: string;
+}
