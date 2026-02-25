@@ -1,0 +1,11 @@
+<div>
+  <p *ngIf="!editMode">{{ bio }}</p>
+
+  <div *ngIf="editMode">
+    <textarea [(ngModel)]="newBio"></textarea>
+    <br>
+    <button (click)="saveBio()">Save</button>
+  </div>
+
+  <button *ngIf="!editMode" (click)="enableEdit()">Edit Bio</button>
+</div>

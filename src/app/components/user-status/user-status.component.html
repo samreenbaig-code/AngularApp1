@@ -1,0 +1,8 @@
+<p>
+  Status:
+  <span [ngClass]="isOnline ? 'online' : 'offline'">
+    {{ isOnline ? 'Online' : 'Offline' }}
+  </span>
+</p>
+
+<button (click)="toggle()">Toggle Status</button>
